@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashraf Mazlom Yar | Junior Full-Stack Developer</title>
+<!-- SEO -->
+<meta name="description" content="Ashraf Mazlom Yar – Junior Full-Stack Developer specializing in modern, responsive, and animated web applications.">
+<meta name="keywords" content="Ashraf Mazlom Yar, Web Developer, Full Stack Developer, HTML, CSS, Bootstrap, JavaScript">
+<meta name="author" content="Ashraf Mazlom Yar">
+
+<!-- Open Graph (Social Sharing) -->
+<meta property="og:title" content="Ashraf Mazlom Yar | Portfolio">
+<meta property="og:description" content="Modern and professional portfolio of Ashraf Mazlom Yar – Junior Full-Stack Developer.">
+<meta property="og:image" content="6.jpg">
+<meta property="og:type" content="website">
+<meta name="description" content="Ashraf Mazlom Yar - Junior Full-Stack Developer. Skills: HTML, CSS, JS, Bootstrap, Tailwind, React, PHP, MySQL. View projects and contact me.">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+html { scroll-behavior: smooth; }
+
+/* ================= THEME VARIABLES ================= */
+:root {
+  --bg: #0b1120;
+  --bg-soft: rgba(255,255,255,0.06);
+  --text: #e5e7eb;
+  --text-soft: #cbd5f5;
+  --nav: rgba(2,6,23,0.85);
+  --accent: #6366f1;
+}
+
+body.light {
+  --bg: #f8fafc;
+  --bg-soft: #ffffff;
+  --text: #020617;
+  --text-soft: #334155;
+  --nav: rgba(255,255,255,0.9);
+  --accent: #3b82f6;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background .4s, color .4s;
+}
+
+#about{
+  scroll-margin-top: 30px;
+}
+#skills{
+  scroll-margin-top: 30px;
+}
+#languages{
+  scroll-margin-top: 30px;
+}
+#projects{
+  scroll-margin-top: 30px;
+}
+#contact{
+  scroll-margin-top: 30px;
+}
+
+
+
+/* Navbar */
+.navbar {
+  background: var(--nav);
+  backdrop-filter: blur(10px);
+  transition: background .4s;
+}
+.navbar-brand {
+  font-weight: 700;
+}
+.navbar-nav .nav-link {
+  color: var(--text);
+  font-weight: 500;
+}
+.navbar-nav .nav-link:hover { color: var(--accent); }
+
+/* Theme Toggle */
+.theme-toggle {
+  border: none;
+  background: var(--bg-soft);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+}
+
+/* Hero */
+.hero {
+  margin-top: 40px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.hero h1 { font-size: 3.5rem; font-weight: 700; }
+.hero span { color: var(--accent); }
+.hero p { color: var(--text-soft); }
+.hero img {  
+  height: 500px;
+  width: 550px;
+  margin-top: -15px;
+  border-radius: 30px;
+  box-shadow: 0 35px 70px rgba(0,0,0,.6);
+  transition: transform .5s;
+}
+ 
+/* .ab-me{
+  height: 60vh;
+  text-align: justify;
+  margin-bottom: -50px;
+  margin-left: 40px;
+} */
+
+
+.hero img:hover { transform: scale(1.05); }
+
+/* Buttons */
+.btn-main {
+  background: linear-gradient(to right,#3b82f6,#6366f1);
+  color: white;
+  border: none;
+  padding: 14px 34px;
+  border-radius: 40px;
+  font-weight: 600;
+}
+
+.btn-main2 {
+  background: linear-gradient(to right,#3b82f6,#6366f1);
+  color: white;
+  border: none;
+  padding: 14px 34px;
+  border-radius: 40px;
+  font-weight: 600;
+}
+.logo{
+  color: rgba(99,102,241,.6);
+  
+}
+
+/* Section Title */
+.section-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 70px;
+}
+.section-title::after {
+  content: "";
+  width: 90px;
+  height: 4px;
+  background: linear-gradient(to right,#3b82f6,#6366f1);
+  display: block;
+  margin: 16px auto;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-soft);
+  border: none;
+  border-radius: 25px;
+  transition: all .4s;
+}
+.card:hover { transform: translateY(-12px); }
+
+/* Skills */
+.skill-box {
+  background: var(--bg-soft);
+  padding: 28px;
+  border-radius: 22px;
+  text-align: center;
+  transition: transform .4s;
+}
+.skill-box:hover { transform: scale(1.05); }
+.progress { height: 10px; background: #1e293b; border-radius: 20px; }
+.progress-bar { background: var(--accent); }
+
+/* projects */
+
+.p-h{
+  height: 100px;
+}
+/* Contact */
+.contact-box {
+  background: var(--bg-soft);
+  border-radius: 25px;
+  padding: 35px;
+  transition: all .4s;
+}
+.contact-item { display: flex; align-items: center; margin-bottom: 18px; }
+.contact-item i { font-size: 1.6rem; color: var(--accent); margin-right: 14px; }
+.contact-item a { color: var(--text); text-decoration: none; }
+.contact-item a:hover { text-decoration: underline; }
+
+/* WhatsApp */
+.whatsapp {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #25d366;
+  color: white;
+  font-size: 1.9rem;
+  padding: 16px;
+  border-radius: 50%;
+  z-index: 999;
+}
+
+
+/* Footer */
+footer { text-align: center; padding: 30px; opacity: .7; }
+
+.fade-up {
+  animation: fadeUp 1s ease forwards;
+}
+
+.szu{
+  height: 415px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.glow:hover {
+  box-shadow: 0 0 25px rgba(99,102,241,.6);
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+   #skills{
+      margin-top: 100px;
+   }
+  .hero {
+    text-align: center;
+    padding-top: 150px;
+  }
+   
+  .hero img {
+    margin-top: 140px;
+
+  }
+   
+  .card-body{
+    text-align: center;
+    color: black !important;
+
+  }
+   
+  .ab-me{
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .whatsapp{
+  padding: 12px;
+}
+
+  /* new code */
+/* Prevent horizontal overflow globally */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Hero image fix */
+.hero img {
+  margin-top: 0; /* remove negative margin */
+  max-width: 100%;
+  height: auto;
+}
+
+/* Card body padding fix */
+.card .card-body {
+  padding: 20px;
+  word-wrap: break-word;
+}
+
+/* Skills and project boxes */
+.skill-box, .project-card {
+  width: 100%;
+  box-sizing: border-box; /* include padding in width */
+}
+
+/* Navbar brand fix for small screens */
+.navbar-brand {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Fix extra width from margins in rows */
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.hero img {
+  margin-top: 45px; /* remove this */
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+
+
+
+/* ================= PROJECTS RESPONSIVE FIX ================= */
+
+.project-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.project-card .card-body {
+  background: var(--bg-soft);
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .project-card img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .project-card img {
+    height: 180px;
+  }
+}
+}
+</style>
+</head>
+
+<body style="overflow-x:hidden;">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#"><sapn class="logo">Ashraf <span>.</span></sapn></a>
+
+    <button class="theme-toggle ms-auto me-3" onclick="toggleTheme()">
+      <i id="themeIcon" class="bi bi-moon-fill"></i>
+    </button>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#languages">Languages</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6" data-aos="fade-right">
+        <h1>Hi, I'm <span>Ashraf</span></h1>
+        <p class="mt-4">Junior Full-Stack Developer<br>I build modern, animated, and professional web apps.</p>
+        <a href="cv.pdf" class="btn btn-main mt-4">Download CV</a>
+      </div>
+      <div class="col-md-6 text-center hr-img" data-aos="fade-left">
+        <img src="6.jpg" class="img-fluid" alt="Ashraf Mazlom Yar">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="py-5">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">About Me</h2>
+
+    <div class="row align-items-center g-4">
+      
+      <div class="col-md-4 col-lg-3 text-center" data-aos="fade-right">
+        <img src="IMG_4132.JPG" class="img-fluid rounded-4 shadow" alt="Ashraf">
+      </div>
+
+      <div class="col-md-8 col-lg-9 " data-aos="fade-left">
+        <p class="">
+          I am a passionate Junior Full-Stack Developer with skills in HTML, CSS, Bootstrap, JavaScript, React, PHP, MySQL, and Tailwind CSS. I love creating clean, responsive, and modern websites. I have successfully completed a professional Web Designing and Front-End Development course from Top in Town Technology, gaining in-depth knowledge and hands-on experience in building modern web applications
+        </p>
+        <h2 class="section-title" data-aos="fade-up">Experience</h2>
+        <p>
+          I have more than two years of experience in web development, specializing in creating clean, modern, and fully responsive websites. 
+          My expertise includes front-end design, responsive layouts, and user-friendly interfaces, ensuring a seamless experience across all devices.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="py-5">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Skills</h2>
+    <div class="row g-4">
+      <div class="col-md-3" data-aos="zoom-in"><div class="skill-box">HTML<div class="progress mt-2"><div class="progress-bar" style="width:95%"></div></div></div></div>
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="50"><div class="skill-box">CSS<div class="progress mt-2"><div class="progress-bar" style="width:90%"></div></div></div></div>
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100"><div class="skill-box">JavaScript<div class="progress mt-2"><div class="progress-bar" style="width:80%"></div></div></div></div>
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="150"><div class="skill-box">Bootstrap<div class="progress mt-2"><div class="progress-bar" style="width:85%"></div></div></div></div>
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200"><div class="skill-box">Tailwind CSS<div class="progress mt-2"><div class="progress-bar" style="width:75%"></div></div></div></div>
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="250"><div class="skill-box">React<div class="progress mt-2"><div class="progress-bar" style="width:75%"></div></div></div></div>
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300"><div class="skill-box">PHP<div class="progress mt-2"><div class="progress-bar" style="width:70%"></div></div></div></div>
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="350"><div class="skill-box">MySQL<div class="progress mt-2"><div class="progress-bar" style="width:70%"></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="languages" class="py-5">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Languages</h2>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="zoom-in"><div class="skill-box">Pashto - Native<div class="progress mt-2"><div class="progress-bar" style="width:100%"></div></div></div></div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="50"><div class="skill-box">Dari - Fluently<div class="progress mt-2"><div class="progress-bar" style="width:90%"></div></div></div></div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100"><div class="skill-box">English - Excellent<div class="progress mt-2"><div class="progress-bar" style="width:80%"></div></div></div></div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Projects -->
+<section id="projects" class="py-5">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Projects</h2>
+
+    <div class="row g-4">
+      
+      <div class="col-lg-4 col-md-6" data-aos="fade-up">
+        <div class="card project-card h-100">
+          <img class="rounded-top-4" src="computer.PNG" alt="">
+          <div class="card-body bg-white rounded-bottom-4">
+            <h5>Shaik Zayed University Website</h5>
+            <p>HTML, CSS, JavaScript, PHP, MySQL</p>
+            <a href="https://medicallearningwithpohan.com/szu/index.php" class="btn btn-main2 mt-3">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="card project-card h-100">
+          <img class="rounded-top-4" src="team002.jpg" alt="">
+          <div class="card-body bg-white rounded-bottom-4">
+            <h5>Gym Website</h5>
+            <p>HTML, CSS, JavaScript, Bootstrap</p>
+            <a href="https://demo.templatemonster.com/demo/467086.html" class="btn btn-main2 mt-3">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="card project-card h-100">
+          <img class="rounded-top-4" src="testimonials2.jpg" alt="">
+          <div class="card-body bg-white rounded-bottom-4">
+            <h5>Business Website</h5>
+            <p>HTML & Modern Tailwind CSS</p>
+            <a href="#" class="btn btn-main2 mt-3">View Project</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-5">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
+    <div class="row g-4">
+      <div class="col-md-5" data-aos="fade-right">
+        <div class="contact-box">
+          <div class="contact-item"><i class="bi bi-envelope-fill"></i><a href="mailto:ashrafmazlomyar625@gmail.com">ashrafmazlomyar625@gmail.com</a></div>
+          <div class="contact-item"><i class="bi bi-telephone-fill"></i>+93 748 447 876</div>
+          <div class="contact-item"><i class="bi bi-linkedin"></i><a href="https://www.linkedin.com/in/ashrafmazlomyar">linkedin.com/in/ashrafmazlomyar</a></div>
+          <div class="contact-item"><i class="bi bi-github"></i><a href="https://github.com/Ashraf-Mazlom-Yar">https://github.com/Ashraf-Mazlom-Yar</a></div>
+        </div>
+      </div>
+      <div class="col-md-7" data-aos="fade-left">
+        <div class="contact-box">
+          <input class="form-control mb-3" placeholder="Your Name">
+          <input class="form-control mb-3" placeholder="Your Email">
+          <textarea class="form-control mb-3" rows="4" placeholder="Message"></textarea>
+          <button class="btn btn-main w-100">Send Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Ashraf Mazlom Yar | All Rights Reserved</footer>
+
+<a href="https://wa.me/93748447876" class="whatsapp" target="_blank"><i class="bi bi-whatsapp"></i></a>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({ duration: 1000, once: true });
+
+function toggleTheme() {
+  document.body.classList.toggle("light");
+  const icon = document.getElementById("themeIcon");
+  if (document.body.classList.contains("light")) {
+    icon.className = "bi bi-sun-fill";
+    localStorage.setItem("theme", "light");
+  } else {
+    icon.className = "bi bi-moon-fill";
+    localStorage.setItem("theme", "dark");
+  }
+}
+
+if (localStorage.getItem("theme") === "light") {
+  document.body.classList.add("light");
+  document.getElementById("themeIcon").className = "bi bi-sun-fill";
+}
+</script>
+
+</body>
+</html>
+
